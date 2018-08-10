@@ -62,7 +62,7 @@ function getUrls(urls, options = {}) {
 
         // IE 9 CORS
         if (isCrossDomain && typeof XDomainRequest !== 'undefined') {
-            if (isSameProtocol) {
+            //if (isSameProtocol) {
                 const xdr = new XDomainRequest();
 
                 // Event handlers must be assigned AFTER xdr.open
@@ -83,12 +83,12 @@ function getUrls(urls, options = {}) {
                 setTimeout(function() {
                     xdr.send();
                 }, 0);
-            }
-            else {
+            //}
+            //else {
                 // eslint-disable-next-line
-                console.log('Internet Explorer 9 Cross-Origin (CORS) requests must use the same protocol');
-                onError(null, i);
-            }
+            //    console.log('Internet Explorer 9 Cross-Origin (CORS) requests must use the same protocol');
+            //    onError(null, i);
+            //}
         }
         // Other
         else {
