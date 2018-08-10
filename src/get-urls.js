@@ -58,7 +58,7 @@ function getUrls(urls, options = {}) {
         parser.href = parser.href;
 
         const isCrossDomain  = parser.host !== location.host;
-        const isSameProtocol = parser.protocol === location.protocol;
+        //const isSameProtocol = parser.protocol === location.protocol;
 
         // IE 9 CORS
         if (isCrossDomain && typeof XDomainRequest !== 'undefined') {
