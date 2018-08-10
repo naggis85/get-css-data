@@ -63,29 +63,29 @@ function getUrls(urls, options = {}) {
         // IE 9 CORS
         if (isCrossDomain && typeof XDomainRequest !== 'undefined') {
             //if (isSameProtocol) {
-                const xdr = new XDomainRequest();
+            const xdr = new XDomainRequest();
 
-                // Event handlers must be assigned AFTER xdr.open
-                xdr.open('GET', url);
+            // Event handlers must be assigned AFTER xdr.open
+            xdr.open('GET', url);
 
-                xdr.timeout = 0; // Prevent aborts/timeouts
-                xdr.onprogress = Function.prototype; // Prevent aborts/timeouts
-                xdr.ontimeout = Function.prototype; // Prevent aborts/timeouts
-                xdr.onload = function() {
-                    onSuccess(xdr.responseText, i);
-                };
-                xdr.onerror = function(err) {
-                    onError(xdr, i);
-                };
+            xdr.timeout = 0; // Prevent aborts/timeouts
+            xdr.onprogress = Function.prototype; // Prevent aborts/timeouts
+            xdr.ontimeout = Function.prototype; // Prevent aborts/timeouts
+            xdr.onload = function() {
+                onSuccess(xdr.responseText, i);
+            };
+            xdr.onerror = function(err) {
+                onError(xdr, i);
+            };
 
-                // Wrap in setTimeout to fix known issues wtih XDomainRequest
-                // when sending multiple requests
-                setTimeout(function() {
-                    xdr.send();
-                }, 0);
+            // Wrap in setTimeout to fix known issues wtih XDomainRequest
+            // when sending multiple requests
+            setTimeout(function() {
+                xdr.send();
+            }, 0);
             //}
             //else {
-                // eslint-disable-next-line
+            //// eslint-disable-next-line
             //    console.log('Internet Explorer 9 Cross-Origin (CORS) requests must use the same protocol');
             //    onError(null, i);
             //}
